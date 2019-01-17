@@ -3,7 +3,7 @@
 The NELA logo is the property of NELA. All rights reserved.
 
 # Running
-* Download the 1.0.0 release (or the appropriate version for your OS)
+* Download the [1.0.0 release](https://github.com/Ezekiel-DA/progvol/releases/tag/v1.0.0) for your OS
 * Unzip it somewhere
 * Drop `schedule.xlsx` in the same directory
 * Run `progvol-win.exe` (or the appropriate version for your OS)
