@@ -5,7 +5,7 @@ const moment = require('moment')
 const docx = require('docx')
 const fs = require('fs').promises
 
-// FIXED STRINGS
+// Text strings for various parts of the letters
 const headerP = new docx.Paragraph()
 headerP.addRun(new docx.TextRun('Fetish Fair Fleamarket #52').bold()).style('basic')
 
@@ -23,6 +23,13 @@ signaturesP.addRun(new docx.TextRun('Connor and Chinci'))
   .addRun(new docx.TextRun('Programming Volunteer Captains').break())
   .addRun(new docx.TextRun('NELA FFF#52').break()).style('basic')
 
+  /**
+   * Add a table for all shifts for a given day and volunteer, sorting shifts by start time
+   * @param {String} day - one of Friday, Saturday or Sunday right now
+   * @param {docx.Document} document
+   * @param {Object} volunteer an object having at least one property that matches the input day and contains an array of shifts in this format {start, end, classTitle, role, location}
+   * @returns {docx.Document} the input Document, with the table added in-place
+   */
 function addTable (day, document, volunteer) {
   let dayText = new docx.TextRun(day).bold()
   let [timeHeader, classHeader, positionHeader, locationHeader] = ['Time', 'Class', 'Position', 'Location'].map(text => {
@@ -59,6 +66,15 @@ function addTable (day, document, volunteer) {
   return document.addParagraph(new docx.Paragraph().style('basic'))
 }
 
+/**
+ * Add a page for the given volunteer to the document
+ * @param {docx.Document} document
+ * @param {Object} volunteer - the input volunteer, in this format:
+ * @param {String} volunteer.name
+ * @param {Object[]} [volunteer.Friday] - an array of Objects representing shifts, in the format outlined in addTable()
+ * @param {Object[]} [volunteer.Saturday] - as above
+ * @param {Object[]} [volunteer.Sunday] - as above
+ */
 function addVolunteer (document, volunteer) {
   let greeting = new docx.Paragraph().style('basic')
   greeting.addRun(new docx.TextRun(`Dear ${volunteer.name},`))
@@ -84,6 +100,10 @@ function addVolunteer (document, volunteer) {
   return document
 }
 
+/**
+ * Expected input: schedule.xlsx and NELA_logo.jpg must exist in the same folder;
+ * Expected output: an output.docx Word document containing one page/letter per volunteer detailing their schedule.
+ */
 async function main () {
   console.log(process.cwd())
   let data = xlsx.parse(path.join(__dirname, 'schedule.xlsx'), { cellDates: true })
