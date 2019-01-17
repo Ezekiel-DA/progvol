@@ -3,9 +3,10 @@
 The NELA logo is the property of NELA. All rights reserved.
 
 # Running
-`node progvol.js`
-
-The logo file needs to exist and the input data needs to be in a `schedule.xlsx` file in the same directory.
+* Download the 1.0.0 release (or the appropriate version for your OS)
+* Unzip it somewhere
+* Drop `schedule.xlsx` in the same directory
+* Run `progvol-win.exe` (or the appropriate version for your OS)
 
 # Input format
 * One line per volunteer
@@ -17,3 +18,8 @@ The logo file needs to exist and the input data needs to be in a `schedule.xlsx`
 * don't forget to close the Word document between runs since Word keeps the file locked
 * There is basically zero error handling at this time
 * __The output document uses A4 as its page size__; please change this to Letter manually in Word
+
+# Hacking
+* Clone this repo
+* `npm install`
+* `node progvol.js`

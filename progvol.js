@@ -1,6 +1,5 @@
 const xlsx = require('node-xlsx')
 const process = require('process')
-const path = require('path')
 const moment = require('moment')
 const docx = require('docx')
 const fs = require('fs').promises
@@ -106,7 +105,7 @@ function addVolunteer (document, volunteer) {
  */
 async function main () {
   console.log(process.cwd())
-  let data = xlsx.parse(path.join(__dirname, 'schedule.xlsx'), { cellDates: true })
+  let data = xlsx.parse('schedule.xlsx', { cellDates: true })
   let sheet = data[0].data.slice(1)
 
   // pre process to add names back in
