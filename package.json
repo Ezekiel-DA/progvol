@@ -1,0 +1,19 @@
+{
+  "name": "progvol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Lefebvre",
+  "license": "MIT",
+  "dependencies": {
+    "docx": "^4.7.0",
+    "moment": "^2.23.0",
+    "node-xlsx": "^0.12.1"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
