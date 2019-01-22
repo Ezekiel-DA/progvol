@@ -7,8 +7,14 @@
     "scheduleIntro": "A paragraph that precedes the volunteer's schedule",
     "scheduleOutro": "A paragraph after the volunteer's schedule",
     "signatures": ["Some sort of signature", "For your document", "Each entry will be on a single line, add or remove as needed"],
-    "badgesPerRow": 2,
-    "badgesPerColumn": 4,
-    "badgeWidth": 3.5,
-    "badgeHeight": 2.25
+    "badges": {
+        "horizontalMargin": 0.75,
+        "verticalMargin": 1,
+        "badgesPerRow": 2,
+        "badgesPerColumn": 4,
+        "badgeWidth": 3.5,
+        "badgeHeight": 2.25,
+        "logoTextLine1": "Fetish Flair Fleamarket® #52",
+        "logoTextLine2": "February 15-17 2019"
+    }
 }
