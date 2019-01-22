@@ -1,6 +1,8 @@
 node_modules
 .vscode
 ~*
-output.docx
-schedule.xlsx
+*.docx
+*.xlsx
 progvol-*
+config.json
+*.pdf

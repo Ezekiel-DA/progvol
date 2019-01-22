@@ -2,7 +2,7 @@
   "name": "progvol",
   "version": "1.0.0",
   "description": "",
-  "main": "progvol.js",
+  "main": "lettergen.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,8 @@
   "dependencies": {
     "docx": "^4.7.0",
     "moment": "^2.23.0",
-    "node-xlsx": "^0.12.1"
+    "node-xlsx": "^0.12.1",
+    "pdfmake": "^0.1.40"
   },
   "devDependencies": {
     "standard": "^12.0.1"
