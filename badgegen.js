@@ -24,10 +24,7 @@ const inchToPoint = inch => inch * 72
 
 const options = {
   tableLayouts: {
-    badgesLayout: {
-      hLineWidth: () => 0.1, vLineWidth: () => 0.1,
-      paddingLeft: noPadding, paddingRight: noPadding, paddingTop: noPadding, paddingBottom: noPadding,
-    }
+    badgesLayout: { hLineWidth: () => 0.1, vLineWidth: () => 0.1, paddingLeft: noPadding, paddingRight: noPadding, paddingTop: noPadding, paddingBottom: noPadding }
   }
 }
 
@@ -51,7 +48,7 @@ const pageBreakBefore = node => {
 const widths = new Array(config.badges.badgesPerRow).fill(inchToPoint(config.badges.badgeWidth))
 const heights = new Array(config.badges.badgesPerColumn).fill(inchToPoint(config.badges.badgeHeight))
 
-async function main() {
+async function main () {
   let volunteerMap = await extractor.parseSchedule('schedule.xlsx')
 
   let badgeFronts = Object.values(volunteerMap).map(volunteer => {
@@ -101,7 +98,7 @@ async function main() {
 
   const reshape = R.pipe(R.splitEvery(2), R.splitEvery(4))
   badgeFronts = reshape(badgeFronts)
-  badgeBacks = reshape(badgeBacks)
+  badgeBacks = reshape(badgeBacks).map(page => page.map(row => row.reverse()))
 
   let docDefinition = {
     pageSize: 'LETTER',
@@ -120,6 +117,3 @@ async function main() {
 }
 
 main()
-
-
-
